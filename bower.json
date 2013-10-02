@@ -1,0 +1,20 @@
+{
+  "name": "requirejs-config",
+  "main": "requirejs-config.js",
+  "version": "0.0.0",
+  "authors": [
+    "Nowell Strite <nowell@strite.org>"
+  ],
+  "description": "Simplify & Centralize your RequireJS configurations",
+  "keywords": [
+    "requirejs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
