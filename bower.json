@@ -1,10 +1,11 @@
 {
   "name": "requirejs-config",
   "main": "requirejs-config.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Nowell Strite <nowell@strite.org>"
   ],
+  "homepage": "https://github.com/nowells/requirejs-config",
   "description": "Simplify & Centralize your RequireJS configurations",
   "keywords": [
     "requirejs"
