@@ -1,0 +1,10 @@
+{
+  "name": "requirejs-config",
+  "dependencies": {
+    "jquery": "*",
+    "backbone-amd": "*",
+    "underscore": "*",
+    "requirejs": "*",
+    "requirejs-config": "*"
+  }
+}
