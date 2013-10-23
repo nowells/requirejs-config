@@ -1,6 +1,6 @@
 {
   "name": "requirejs-config",
-  "main": "requirejs-config.js",
+  "main": "config.js",
   "version": "0.0.1",
   "authors": [
     "Nowell Strite <nowell@strite.org>"
@@ -10,9 +10,17 @@
   "keywords": [
     "requirejs"
   ],
+  "devDependencies": {
+    "chai": "~1.7.2",
+    "underscore": "~1.5.2",
+    "sinonjs": "1.7.1"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "package.json",
     "node_modules",
     "bower_components",
     "test",
