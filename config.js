@@ -7,11 +7,11 @@
   Config = function() {
     var config;
     if (!(this instanceof Config)) {
-      if (arguments.length !== 2 || typeof(arguments[1]) !== 'function') {
+      if (arguments.length !== 1 || typeof(arguments[0]) !== 'function') {
         throw new Error('Config must be instanciated with "new"');
       }
       config = new Config();
-      arguments[1](arguments[0], config);
+      arguments[0](root, config);
       return config;
     }
     this.reset();

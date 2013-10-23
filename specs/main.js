@@ -33,10 +33,10 @@ define(function(require) {
       it('should instantiating Config by calling non-new with ' +
          '(root, factory) parameters', function() {
         expect(function() {
-          return Config(window, function() {});
+          return Config(function() {});
         }).to.not.throw(Error);
 
-        expect(Config(window, function(root, config) {
+        expect(Config(function(root, config) {
           config.add('foo', 'bar');
         })).to.have.deep.property('paths.foo', 'bar');
       });
