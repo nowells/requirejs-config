@@ -1,6 +1,6 @@
 {
   "name": "requirejs-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "RequireJS Configuration",
   "dependencies": {
     "grunt": "0.4.1",
