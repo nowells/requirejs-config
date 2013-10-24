@@ -296,6 +296,24 @@ define(function(require) {
           }]);
         });
       });
+
+      describe('#module', function() {
+        it('should capture referenced items', function() {
+          var module1, module2;
+          module1 = config.module('test', function() {
+            config.add('jquery');
+            config.add('bar');
+          });
+
+          module2 = config.module('testing', function() {
+            config.add('jquery2');
+            config.add('bar');
+          });
+
+          expect(module1).to.have.deep.property('name', 'test');
+          expect(module2).to.have.deep.property('name', 'testing');
+        });
+      });
     });
   };
 });
