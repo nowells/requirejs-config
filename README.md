@@ -18,7 +18,7 @@ production, test suite, multiple pages).
     return require('../bower_components/requirejs-config/config')(factory);
   });
 }(this, function(root, config) {
-  config.extend({
+  config.merge({
     hbs: {
       disableI18n: true,
       disableHelpers: true
@@ -30,9 +30,10 @@ production, test suite, multiple pages).
     }
   });
 
-  config.add('jquery', 'bower_components/jquery/jquery');
-  config.add('underscore', 'bower_components/underscore/underscore', '_');
-  config.add('backbone', 'bower_components/backbone/backbone', 'Backbone', ['jquery', 'underscore']);
+  config.pkg('myapp');
+  config.add('jquery1.10', 'bower_components/jquery/jquery').map('jquery');
+  config.add('underscore', 'bower_components/underscore/underscore').shim('_');
+  config.add('backbone', 'bower_components/backbone/backbone').shim('Backbone', ['jquery', 'underscore']);
 }));
 ```
 
@@ -42,7 +43,7 @@ production, test suite, multiple pages).
 module.exports = function(grunt) {
   var rConfig = require('./config');
 
-  rConfig.extend({
+  rConfig.merge({
       baseUrl: './',
       out: 'build/main.js',
       name: 'main',
