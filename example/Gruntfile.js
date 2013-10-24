@@ -8,6 +8,8 @@ module.exports = function(grunt) {
       optimize: 'none'
   });
 
+  rConfig.done();
+
   grunt.initConfig({
     requirejs: {
       compile: {

@@ -153,6 +153,47 @@
 
       return new Module();
     }
+
+    var baseConfig = this;
+
+    Config.prototype.done = function() {
+      var requirejs = require('./r');
+        err = new Error(),
+        basePath = err.stack.split("\n")[2].match(/\(([^:]+):/)[1];
+
+      requirejs.tools.useLib(function(require) {
+        var parse = require('parse'),
+          path = require('path'),
+          fs = require('fs'),
+          dependencies = {},
+          rootPath = path.join(path.dirname(basePath), baseConfig.appDir || baseConfig.baseUrl);
+
+        baseConfig.baseUrl = rootPath;
+        requirejs.config(baseConfig);
+
+        function findDeps(module) {
+          var content, deps;
+          if (dependencies[module] !== undefined) {
+            return dependencies[module];
+          }
+
+          try {
+            var content = fs.readFileSync(requirejs.toUrl(module) + '.js');
+            deps = parse.findDependencies(module, content)
+            dependencies[module] = deps;
+
+            deps.forEach(function(dep) {
+              findDeps(dep);
+            }, this);
+          }
+          catch (e) {
+            dependencies[module] = [];
+          }
+        }
+        findDeps('main');
+        console.log(dependencies);
+      });
+    };
   };
 
 
