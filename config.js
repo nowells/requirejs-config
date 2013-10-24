@@ -179,7 +179,7 @@
 
           try {
             var content = fs.readFileSync(requirejs.toUrl(module) + '.js');
-            deps = parse.findDependencies(module, content)
+            deps = parse.findDependencies(module, content, {findNestedDependencies: true})
             dependencies[module] = deps;
 
             deps.forEach(function(dep) {
